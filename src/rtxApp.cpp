@@ -49,7 +49,7 @@ void RtxApp::InitSettings() {
 }
 
 void RtxApp::InitApp() {
-	this->LoadSceneGeometry();
+	this->LoadSceneGeometry("fake_whitted/fake_whitted_false.obj");
 	this->CreateScene();
 	this->CreateCamera();
 	this->CreateDescriptorSetsLayouts();
@@ -169,6 +169,7 @@ void RtxApp::OnKey(const int key, const int scancode, const int action, const in
 		case GLFW_KEY_A: mAKeyDown = true; break;
 		case GLFW_KEY_S: mSKeyDown = true; break;
 		case GLFW_KEY_D: mDKeyDown = true; break;
+		case GLFW_KEY_U: mUKeyDown = true; break;
 
 		case GLFW_KEY_LEFT_SHIFT:
 		case GLFW_KEY_RIGHT_SHIFT:
@@ -182,6 +183,7 @@ void RtxApp::OnKey(const int key, const int scancode, const int action, const in
 		case GLFW_KEY_A: mAKeyDown = false; break;
 		case GLFW_KEY_S: mSKeyDown = false; break;
 		case GLFW_KEY_D: mDKeyDown = false; break;
+		case GLFW_KEY_U: mUKeyDown = false; break;
 
 		case GLFW_KEY_LEFT_SHIFT:
 		case GLFW_KEY_RIGHT_SHIFT:
@@ -210,13 +212,13 @@ void RtxApp::Update(const size_t, const float dt) {
 
 
 
-void RtxApp::LoadSceneGeometry() {
+void RtxApp::LoadSceneGeometry(String filepath) {
 	tinyobj::attrib_t attrib;
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
 	String warn, error;
 
-	String fileName = sScenesFolder + "fake_whitted/fake_whitted_false.obj";
+	String fileName = sScenesFolder + filepath;
 	String baseDir = fileName;
 	const size_t slash = baseDir.find_last_of('/');
 	if (slash != String::npos) {
@@ -295,7 +297,7 @@ void RtxApp::LoadSceneGeometry() {
 				faces[4 * f + 1] = b;
 				faces[4 * f + 2] = c;
 
-				matIDs[f] = static_cast<uint32_t>(shape.mesh.material_ids[f]);
+				matIDs[f] = static_cast<uint32_t>(shape.mesh.material_ids[1]);
 			}
 
 			mesh.matIDs.Unmap();
@@ -389,7 +391,7 @@ void RtxApp::CreateCamera() {
 	mCamera.SetViewport({ 0, 0, static_cast<int>(mSettings.resolutionX), static_cast<int>(mSettings.resolutionY) });
 	mCamera.SetViewPlanes(0.1f, 100.0f);
 	mCamera.SetFovY(45.0f);
-	mCamera.LookAt(vec3(0.25f, 3.20f, 6.15f), vec3(0.25f, 2.75f, 5.25f));
+	mCamera.LookAt(vec3(0.f, 0.f, 0.f), vec3(1, 10, 1));
 }
 
 void RtxApp::UpdateCameraParams(UniformParams* params, const float dt) {

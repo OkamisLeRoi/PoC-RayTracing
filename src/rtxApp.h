@@ -100,7 +100,7 @@ protected:
 	virtual void Update(const size_t imageIndex, const float dt) override;
 
 private:
-	void LoadSceneGeometry();
+	void LoadSceneGeometry(String);
 	void CreateScene();
 	void CreateCamera();
 	void UpdateCameraParams(struct UniformParams* params, const float dt);
@@ -129,6 +129,7 @@ private:
 	bool mSKeyDown;
 	bool mDKeyDown;
 	bool mShiftDown;
+	bool mUKeyDown;
 	bool mLMBDown;
 	vec2 mCursorPos;
 };
