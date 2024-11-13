@@ -1,0 +1,3 @@
+﻿  rtxApp.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+  rtxON.vcxproj -> C:\Users\Utilisateur\Desktop\RTXExample\rtxON\bin\Win64\Debug\rtxON_D.exe

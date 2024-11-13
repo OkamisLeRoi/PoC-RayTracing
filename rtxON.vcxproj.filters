@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="framework">
+      <UniqueIdentifier>{33827CC1-9FEC-3038-E82A-E2DD54D40E8D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\framework\camera.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\common.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\vulkanapp.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\vulkanhelpers.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rtxApp.h" />
+    <ClInclude Include="src\shared_with_shaders.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\framework\camera.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\vulkanapp.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\vulkanhelpers.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\rtxApp.cpp" />
+  </ItemGroup>
+</Project>
